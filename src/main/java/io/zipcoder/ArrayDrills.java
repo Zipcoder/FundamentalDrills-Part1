@@ -72,17 +72,19 @@ public class ArrayDrills {
      *           middleWay([5, 1, 2, 9], [3, 4, 5, 5]); // Should return [3, 9]
      */
     public Integer[] middleWay(Integer[] input1, Integer[] input2) {
-//
-//        Integer[] a;
-//        if(input1.length % 2 ==0)
-//            a = new Integer[2];
-//        a[0] = input1[(input1.length/2) -1];
-//        a[1] = input1[input1.length/2];
-//    } else {
-//        a = new Integer[1];
-//        a[0]
-//    }
-        return null;
+        Integer[] newInput = new Integer[2];
+        if(input1.length % 2 == 0) {
+            newInput[0] = (input1.length / 2) + (input1.length / 2-1);
+        } else if (input1.length % 2 != 0){
+            newInput[0] = input1[input1.length / 2];
+        }
+        if (input2.length % 2 == 0) {
+            newInput[1] = ((input2[input2.length / 2]) + (input2[input2.length / 2 - 1]));
+        }
+        else if (input2.length % 2 != 0) {
+            newInput[1] = input2[input2.length / 2];
+        }
+        return newInput;
     }
 
     /**
@@ -91,12 +93,11 @@ public class ArrayDrills {
      * Return the array which has the largest sum. In event of a tie, return a.
      */
     public Integer[] biggerTwo(Integer[] a, Integer[] b){
-        int sum = a[0] + a[1] - b[0] - b[1];
-        if (sum >= 0)
+        int sumA = a[0] + a[1];
+        int sumB =  b[0] + b[1];
+        if (sumA > sumB)
             return a;
-        else {
             return b;
-        }
     }
 
     /**
