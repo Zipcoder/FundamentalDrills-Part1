@@ -1,5 +1,10 @@
 package io.zipcoder;
 
+import com.sun.tools.corba.se.idl.InterfaceGen;
+
+import java.util.Arrays;
+
+
 public class ArrayDrills {
 
 
@@ -10,7 +15,10 @@ public class ArrayDrills {
      *           firstLast(6, [1,2,3]); // Should return false
      */
     public Boolean firstLast(Integer value, Integer[] input){
-        return null;
+        if(value.equals(input[0]) || value.equals(input[input.length - 1])){
+            return true;
+        }
+        else return false;
     }
 
     /**
@@ -18,8 +26,11 @@ public class ArrayDrills {
      * example : sameFirstLast([1,2,3]); // Should return false
      *           sameFirstLast([1,2,1]); // Should return true
      */
-    public Boolean sameFirstLast(Integer[] input){
-        return null;
+    public Boolean sameFirstLast(Integer[] input) {
+        if (input.length >= 1 && input[0] == input[input.length - 1]) {
+            return true;
+        }
+        else return false;
     }
 
 
@@ -30,7 +41,13 @@ public class ArrayDrills {
      *           commonEnd([1, 2, 3], [7, 3, 2]); // Should return false
      */
     public Boolean commonEnd(Integer[] input1, Integer[] input2){
-        return null;
+         if(input1[0] == input2[0]){
+             return true;
+         }
+         else if(input1[input1.length - 1] == input2[input2.length - 1]){
+             return true;
+         }
+             else return false;
     }
 
     /**
@@ -39,7 +56,8 @@ public class ArrayDrills {
      *           rotateLeft([5, 11, 9]); // Should return [11,9,5]
      */
     public Integer[] rotateLeft(Integer[] input){
-        return null;
+        Integer[] newArray = {input[1], input[2], input[0]};
+        return newArray;
     }
 
 
@@ -50,7 +68,17 @@ public class ArrayDrills {
      *           maxValue([5, 11, 9]); // Should return [11,11,11]
      */
     public Integer[] maxValue(Integer[] input){
-        return null;
+        Integer[] newArray = new Integer[input.length];
+        int max;
+        max = input[0];
+
+        for(int value : input){
+            if(value > max){
+                max = value;
+            }
+            }
+        Arrays.fill(newArray,max);
+        return newArray;
     }
 
 
@@ -61,7 +89,20 @@ public class ArrayDrills {
      *           middleWay([5, 1, 2, 9], [3, 4, 5, 5]); // Should return [3, 9]
      */
     public Integer[] middleWay(Integer[] input1, Integer[] input2){
-        return null;
+        Integer[] newArr = new Integer[2];
+        int half1 = input1.length/2;
+        int half2 = input2.length/2;
+
+        if(input1.length % 2 == 0){
+            newArr[0]= input1[half1-1] + input1[half1];
+        }
+        else newArr[0] = input1[half1];
+
+        if(input2.length % 2 == 0){
+            newArr[1] = input2[half2-1] + input2[half2];
+        }
+        else newArr[1] = input2[half2];
+        return newArr;
     }
 
 
@@ -70,8 +111,12 @@ public class ArrayDrills {
      * Consider the sum of the values in each array.
      * Return the array which has the largest sum. In event of a tie, return a.
      */
+    //Was test supposed to have -1? Changed it already btw
     public Integer[] biggerTwo(Integer[] a, Integer[] b){
-        return null;
+        if(a[0] + a[1] > b[0] + b[1]){
+            return a;
+        }
+        else return b;
     }
 
     /**
@@ -81,6 +126,12 @@ public class ArrayDrills {
      *           midThree([8, 6, 7, 5, 3, 0, 9]); // Should return [7, 5, 3]
      */
     public Integer[] midThree(Integer[] nums){
-        return null;
+        Integer[] newArr = new Integer[3];
+        int half = nums.length/2;
+        newArr[0] = nums[half - 1];
+        newArr[1] = nums[half];
+        newArr[2] = nums[half+1];
+        return newArr;
     }
+
 }
