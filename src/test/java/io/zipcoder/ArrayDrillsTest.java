@@ -1,6 +1,5 @@
 package io.zipcoder;
 
-import com.sun.tools.corba.se.idl.InterfaceGen;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

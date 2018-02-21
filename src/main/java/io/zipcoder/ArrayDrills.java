@@ -9,17 +9,19 @@ public class ArrayDrills {
      * example : firstLast(6, [1,2,6); // Should return true
      *           firstLast(6, [1,2,3]); // Should return false
      */
-    public Boolean firstLast(Integer value, Integer[] input){
-        return null;
-    }
+    public Boolean firstLast(Integer value, Integer[] input) {
 
+        if (value.equals(input[0]) || value.equals(input[input.length - 1])) return true;
+        return false;
+    }
     /**
      * Given an array of ints, return true if the array is length 1 or more, and the first element and the last element are equal.
      * example : sameFirstLast([1,2,3]); // Should return false
      *           sameFirstLast([1,2,1]); // Should return true
      */
-    public Boolean sameFirstLast(Integer[] input){
-        return null;
+    public Boolean sameFirstLast(Integer[] input) {
+        if (input.length > 1 && input[0] == input[input.length - 1]) return true;
+        return false;
     }
 
 
@@ -30,7 +32,8 @@ public class ArrayDrills {
      *           commonEnd([1, 2, 3], [7, 3, 2]); // Should return false
      */
     public Boolean commonEnd(Integer[] input1, Integer[] input2){
-        return null;
+        if (input1[0].equals(input2[0]) || input1[input1.length-1].equals(input2[input2.length-1])) return true;
+        return false;
     }
 
     /**
@@ -39,18 +42,35 @@ public class ArrayDrills {
      *           rotateLeft([5, 11, 9]); // Should return [11,9,5]
      */
     public Integer[] rotateLeft(Integer[] input){
+
         return null;
     }
 
 
     /**
-     * Given an array of ints, figure out which is element in the array is largest,
+     * Given an array of ints, figure out which element in the array is largest,
      * and set all the other elements to be that value. Return the changed array.
      * example : maxValue([1, 2, 3]); // Should return [3,3,3]
      *           maxValue([5, 11, 9]); // Should return [11,11,11]
      */
     public Integer[] maxValue(Integer[] input){
-        return null;
+
+        Integer[] maxValueArray = new Integer[input.length];
+        int currentMaxValue = 0;
+        int currentValue;
+
+        for(int i =0; i < input.length; i++ ) {
+           currentValue = input[i];
+            if (currentValue > currentMaxValue) {
+                currentMaxValue = currentValue;
+            }
+        }
+
+        for (int j =0; j < input.length; j++) {
+            maxValueArray[j] = currentMaxValue;
+        }
+
+        return maxValueArray;
     }
 
 
