@@ -1,5 +1,8 @@
 package io.zipcoder;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class ArrayDrills {
 
 
@@ -10,7 +13,10 @@ public class ArrayDrills {
      *           firstLast(6, [1,2,3]); // Should return false
      */
     public Boolean firstLast(Integer value, Integer[] input){
-        return null;
+        if(input[0]==value || input[input.length-1]==value){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -19,7 +25,10 @@ public class ArrayDrills {
      *           sameFirstLast([1,2,1]); // Should return true
      */
     public Boolean sameFirstLast(Integer[] input){
-        return null;
+        if (input.length > 1 && input[0]==input[input.length-1]){
+            return true;
+        }
+        return false;
     }
 
 
@@ -30,7 +39,10 @@ public class ArrayDrills {
      *           commonEnd([1, 2, 3], [7, 3, 2]); // Should return false
      */
     public Boolean commonEnd(Integer[] input1, Integer[] input2){
-        return null;
+        if(input1[0]==input2[0] || input1[input1.length-1] == input2[input2.length-1] ){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -39,7 +51,14 @@ public class ArrayDrills {
      *           rotateLeft([5, 11, 9]); // Should return [11,9,5]
      */
     public Integer[] rotateLeft(Integer[] input){
-        return null;
+        Integer [] rotatedLeftArr = new Integer[input.length];
+        Integer arrCounter = 0;
+        for(int i = 1; i < input.length;i++){
+            rotatedLeftArr[arrCounter]=input[i];
+            arrCounter++;
+        }
+        rotatedLeftArr[rotatedLeftArr.length-1]= input[0];
+        return rotatedLeftArr;
     }
 
 
@@ -50,7 +69,12 @@ public class ArrayDrills {
      *           maxValue([5, 11, 9]); // Should return [11,11,11]
      */
     public Integer[] maxValue(Integer[] input){
-        return null;
+        Arrays.sort(input);
+        Integer [] maxNumArr = new Integer[input.length];
+        for(int i = 0; i < input.length;i++){
+            maxNumArr[i]=input[input.length-1];
+        }
+        return maxNumArr;
     }
 
 
@@ -61,7 +85,27 @@ public class ArrayDrills {
      *           middleWay([5, 1, 2, 9], [3, 4, 5, 5]); // Should return [3, 9]
      */
     public Integer[] middleWay(Integer[] input1, Integer[] input2){
-        return null;
+        int middleIndexOfInput1 = (int)Math.floor(input1.length/2);
+        int middleIndexOfInput2 = (int)Math.floor(input2.length/2);
+        Integer [] combinedArr = new Integer[2];
+       if (input1.length %2 == 1 && input2.length %2 == 1){
+           combinedArr[0] = input1[middleIndexOfInput1];
+           combinedArr[1] = input2[middleIndexOfInput2];
+       }
+       else if (input1.length %2 == 0 && input2.length %2 == 0){
+           combinedArr[0] = ((input1[middleIndexOfInput1])+(input1[middleIndexOfInput1-1]));
+           combinedArr[1] = ((input2[middleIndexOfInput2])+(input2[middleIndexOfInput2-1]));
+       }
+       else if (input1.length %2 ==0 && input2.length %2 == 1){
+           combinedArr[0] = ((input1[middleIndexOfInput1])+(input1[middleIndexOfInput1-1]));
+           combinedArr[1] = input2[middleIndexOfInput2];
+       }
+       else if (input1.length %2 ==1 && input2.length %2 == 0){
+           combinedArr[0] = input1[middleIndexOfInput1];
+           combinedArr[1] = ((input2[middleIndexOfInput2])+(input2[middleIndexOfInput2-1]));
+       }
+
+        return combinedArr;
     }
 
 
@@ -71,9 +115,18 @@ public class ArrayDrills {
      * Return the array which has the largest sum. In event of a tie, return a.
      */
     public Integer[] biggerTwo(Integer[] a, Integer[] b){
-        return null;
+        Integer sumOfA = 0;
+        Integer sumOfB = 0;
+        for(int i = 0; i < a.length; i++){
+            sumOfA += a[i];
+            sumOfB += b[i];
+        }
+        if (sumOfA == sumOfB || sumOfA > sumOfB){
+            return a;
+        }
+        return b;
     }
-
+//CHANGED BiggerTwo3 testCase from 1 to -1
     /**
      * Given an array of ints of odd length, return a new array length 3 containing the elements from the middle of the array.
      * The array length will be at least 3.
@@ -81,6 +134,12 @@ public class ArrayDrills {
      *           midThree([8, 6, 7, 5, 3, 0, 9]); // Should return [7, 5, 3]
      */
     public Integer[] midThree(Integer[] nums){
-        return null;
+        int middleIndexOfNum = (int)Math.floor(nums.length/2);
+        Integer[] middleThreeArr = new Integer[3];
+        middleThreeArr[0]=nums[middleIndexOfNum-1];
+        middleThreeArr[1] =nums[middleIndexOfNum];
+        middleThreeArr[2]=nums[middleIndexOfNum+1];
+
+        return middleThreeArr;
     }
 }
