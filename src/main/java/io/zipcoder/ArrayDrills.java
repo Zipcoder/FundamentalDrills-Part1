@@ -1,5 +1,7 @@
 package io.zipcoder;
 
+import java.util.ArrayList;
+
 public class ArrayDrills {
 
 
@@ -10,7 +12,8 @@ public class ArrayDrills {
      *           firstLast(6, [1,2,3]); // Should return false
      */
     public Boolean firstLast(Integer value, Integer[] input){
-        return null;
+
+        return (value == input[0]  || value == input[input.length -1]);
     }
 
     /**
@@ -19,7 +22,9 @@ public class ArrayDrills {
      *           sameFirstLast([1,2,1]); // Should return true
      */
     public Boolean sameFirstLast(Integer[] input){
-        return null;
+
+
+        return (input[0] == input[input.length -1]);
     }
 
 
@@ -30,7 +35,8 @@ public class ArrayDrills {
      *           commonEnd([1, 2, 3], [7, 3, 2]); // Should return false
      */
     public Boolean commonEnd(Integer[] input1, Integer[] input2){
-        return null;
+
+        return (input1[0] == input2[0] || input1[input1.length -1] == input2[input2.length -1]);
     }
 
     /**
@@ -39,9 +45,15 @@ public class ArrayDrills {
      *           rotateLeft([5, 11, 9]); // Should return [11,9,5]
      */
     public Integer[] rotateLeft(Integer[] input){
-        return null;
+        Integer[] rotated = new Integer[input.length];
+        for (int i =1; i < input.length; i++) {
+         rotated[i -1] = input[i];
+        }
+        rotated[input.length -1] = input[0];
+        return rotated;
     }
-
+//    String work = input.toString();
+//    String reworked = work.substring(1, work.length()) + work.substring(0);
 
     /**
      * Given an array of ints, figure out which is element in the array is largest,
@@ -50,7 +62,18 @@ public class ArrayDrills {
      *           maxValue([5, 11, 9]); // Should return [11,11,11]
      */
     public Integer[] maxValue(Integer[] input){
-        return null;
+        Integer maxVal = input[0];
+        Integer[] newInput = new Integer[input.length];
+        for (int i = 0; i < input.length; i++){
+            if (input[i] > maxVal) {
+                maxVal = input[i];
+            }
+        }
+        for (int i = 0; i < input.length; i++){
+            newInput[i] = maxVal;
+        }
+
+        return newInput;
     }
 
 
@@ -61,7 +84,21 @@ public class ArrayDrills {
      *           middleWay([5, 1, 2, 9], [3, 4, 5, 5]); // Should return [3, 9]
      */
     public Integer[] middleWay(Integer[] input1, Integer[] input2){
-        return null;
+        Integer[] answer = new Integer[2];
+        Integer first = input1.length % 2;
+        if (first != 0) {
+            answer[0] = input1[(input1.length/2)];
+            } else {
+            answer[0] = (input1[(input1.length/2)] + input1[((input1.length/2) - 1)]);
+            }
+        Integer second = input2.length % 2;
+        if (second != 0) {
+            answer[1] = input2[(input2.length/2)];
+        } else {
+            answer[1] = (input2[(input2.length/2)] + input2[((input2.length/2) - 1)]);
+
+        }
+        return answer;
     }
 
 
@@ -70,10 +107,25 @@ public class ArrayDrills {
      * Consider the sum of the values in each array.
      * Return the array which has the largest sum. In event of a tie, return a.
      */
-    public Integer[] biggerTwo(Integer[] a, Integer[] b){
-        return null;
-    }
+    public Integer[] biggerTwo(Integer[] a, Integer[] b) {
+        Integer sum1 = 0;
+        Integer sum2 = 0;
 
+        for (Integer sumA : a) {
+            sum1 += sumA;
+        }
+        for (Integer sumB : b) {
+            sum2 += sumB;
+        }
+
+        if (sum1 > sum2) {
+            return a;
+        } else if (sum1 < sum2) {
+            return b;
+        } else {
+            return a;
+        }
+    }
     /**
      * Given an array of ints of odd length, return a new array length 3 containing the elements from the middle of the array.
      * The array length will be at least 3.
@@ -81,6 +133,13 @@ public class ArrayDrills {
      *           midThree([8, 6, 7, 5, 3, 0, 9]); // Should return [7, 5, 3]
      */
     public Integer[] midThree(Integer[] nums){
-        return null;
+        Integer[] bigThree = new Integer[3];
+        Integer mid = nums.length/2;
+        bigThree[0] = nums[mid-1];
+        bigThree[1] = nums[mid];
+        bigThree[2] = nums[mid+1];
+
+
+        return bigThree;
     }
 }
