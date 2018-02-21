@@ -1,6 +1,5 @@
 package io.zipcoder;
 
-import jdk.internal.util.xml.impl.Input;
 import java.util.Collections;
 import java.util.Arrays;
 
@@ -125,7 +124,7 @@ public class ArrayDrills {
         if (sumA == sumB){
             return a;
         }
-//this does not pass the 3rd test case for this...should make another an assisting method tio
+//this does not pass the 3rd test case for this...should make another an assisting method to call upon and do the work for me...
         return b;
     }
 
