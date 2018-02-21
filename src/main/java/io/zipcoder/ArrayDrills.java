@@ -42,8 +42,12 @@ public class ArrayDrills {
      *           rotateLeft([5, 11, 9]); // Should return [11,9,5]
      */
     public Integer[] rotateLeft(Integer[] input){
-
-        return null;
+        Integer[] newArray = new Integer[input.length];
+        for (int i = 0; i < input.length; i++) {
+            if (i == 0) newArray[2] = input[i];
+            else if  (i == 1) newArray[0] = input[i];
+            else if (i ==2) newArray[1] = input[i];
+        } return newArray;
     }
 
 
@@ -81,7 +85,18 @@ public class ArrayDrills {
      *           middleWay([5, 1, 2, 9], [3, 4, 5, 5]); // Should return [3, 9]
      */
     public Integer[] middleWay(Integer[] input1, Integer[] input2){
-        return null;
+        Integer[] newArray = new Integer[2];
+        int inLength1 = input1.length;
+        int inLength2 = input2.length;
+        if (inLength1 % 2 == 0) newArray[0] = input1[(int)((Math.floor(inLength1/2) + Math.round(inLength1/2)))];
+
+        else if((inLength2  % 2 == 0)) newArray[1] = input2[(int)((Math.floor(inLength2/2) + Math.round(inLength2/2)))];
+
+
+        else if (inLength1 % 2 != 0) newArray[0] = input1[(int)Math.round(inLength1/2)];
+
+        else if (inLength2 % 2 != 0) newArray[1] = input2[(int)Math.round(inLength2/2)];
+        return newArray;
     }
 
 
@@ -91,7 +106,12 @@ public class ArrayDrills {
      * Return the array which has the largest sum. In event of a tie, return a.
      */
     public Integer[] biggerTwo(Integer[] a, Integer[] b){
-        return null;
+        int sumOfA = a[0] +a[1];
+        int sumOfB = b[0] + b[1];
+
+        if (sumOfA >= sumOfB) return a;
+        else return b;
+
     }
 
     /**
@@ -101,6 +121,8 @@ public class ArrayDrills {
      *           midThree([8, 6, 7, 5, 3, 0, 9]); // Should return [7, 5, 3]
      */
     public Integer[] midThree(Integer[] nums){
-        return null;
+        int length = nums.length;
+        Integer[] newArray = {nums[(length/2 -1)], nums[length/2], nums[(length/2 +1)]};
+        return newArray;
     }
 }
