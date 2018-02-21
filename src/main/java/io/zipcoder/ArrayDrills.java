@@ -86,17 +86,20 @@ public class ArrayDrills {
      */
     public Integer[] middleWay(Integer[] input1, Integer[] input2){
         Integer[] newArray = new Integer[2];
-        int inLength1 = input1.length;
-        int inLength2 = input2.length;
-        if (inLength1 % 2 == 0) newArray[0] = input1[(int)((Math.floor(inLength1/2) + Math.round(inLength1/2)))];
 
-        else if((inLength2  % 2 == 0)) newArray[1] = input2[(int)((Math.floor(inLength2/2) + Math.round(inLength2/2)))];
-
-
-        else if (inLength1 % 2 != 0) newArray[0] = input1[(int)Math.round(inLength1/2)];
-
-        else if (inLength2 % 2 != 0) newArray[1] = input2[(int)Math.round(inLength2/2)];
+        newArray[0] = middleWayHelp(input1);
+        newArray[1] = middleWayHelp(input2);
         return newArray;
+    }
+    public Integer middleWayHelp (Integer[] input) {
+
+        int middleElements;
+        if (input.length % 2 == 0)
+            middleElements = input[(Math.round(input.length/2))] + (input[(Math.round(input.length/2) -1)]);
+        else middleElements = input[Math.round(input.length/2)];
+
+        return middleElements;
+
     }
 
 
