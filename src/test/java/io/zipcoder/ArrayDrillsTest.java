@@ -1,6 +1,5 @@
 package io.zipcoder;
 
-import com.sun.tools.corba.se.idl.InterfaceGen;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -175,11 +174,11 @@ public class ArrayDrillsTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
-    @Test
+    @Test  //Test expected missing negative sign
     public void biggerTwo3(){
         Integer[] inputArray1 = {-1 ,20};
         Integer[] inputArray2 = {2, 15};
-        Integer[] expected = {1,20};
+        Integer[] expected = {-1,20};
         Integer[] actual = arrayDrills.biggerTwo(inputArray1, inputArray2);
         Assert.assertArrayEquals(expected, actual);
     }
