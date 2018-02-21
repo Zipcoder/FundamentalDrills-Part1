@@ -10,8 +10,12 @@ public class ArrayDrills {
      *           firstLast(6, [1,2,3]); // Should return false
      */
     public Boolean firstLast(Integer value, Integer[] input){
-        return null;
+        if(value.equals(input[0])||value.equals(input[input.length-1])){
+            return true;
+            }
+        return false;
     }
+
 
     /**
      * Given an array of ints, return true if the array is length 1 or more, and the first element and the last element are equal.
@@ -19,7 +23,8 @@ public class ArrayDrills {
      *           sameFirstLast([1,2,1]); // Should return true
      */
     public Boolean sameFirstLast(Integer[] input){
-        return null;
+        return (input.length>=1 && input[0 ].equals(input[input.length-1]));
+
     }
 
 
@@ -30,7 +35,8 @@ public class ArrayDrills {
      *           commonEnd([1, 2, 3], [7, 3, 2]); // Should return false
      */
     public Boolean commonEnd(Integer[] input1, Integer[] input2){
-        return null;
+        return (input1[0].equals(input2[0])||input1[input1.length-1].equals(input2[input2.length-1]));
+
     }
 
     /**
@@ -39,7 +45,14 @@ public class ArrayDrills {
      *           rotateLeft([5, 11, 9]); // Should return [11,9,5]
      */
     public Integer[] rotateLeft(Integer[] input){
-        return null;
+        //review notes in book of break down
+        Integer[] rotatedArray = new Integer[input.length];
+        rotatedArray[rotatedArray.length - 1] = input[0];
+
+        for(Integer i = 0; i<rotatedArray.length-1;i++){
+            rotatedArray[i]=input[i+1];
+        }
+        return rotatedArray;
     }
 
 
@@ -50,6 +63,16 @@ public class ArrayDrills {
      *           maxValue([5, 11, 9]); // Should return [11,11,11]
      */
     public Integer[] maxValue(Integer[] input){
+        //halfway done, don't really understand what I'm doing wrong here.
+        Integer[] array2 = new Integer[3];
+
+        Integer temporary = input[0];
+        for(Integer i =1; i<input.length;i++){
+            if(temporary<input[i]){
+                temporary=input[i];
+
+            }
+        }
         return null;
     }
 
@@ -61,6 +84,8 @@ public class ArrayDrills {
      *           middleWay([5, 1, 2, 9], [3, 4, 5, 5]); // Should return [3, 9]
      */
     public Integer[] middleWay(Integer[] input1, Integer[] input2){
+
+
         return null;
     }
 
@@ -71,7 +96,13 @@ public class ArrayDrills {
      * Return the array which has the largest sum. In event of a tie, return a.
      */
     public Integer[] biggerTwo(Integer[] a, Integer[] b){
-        return null;
+        Integer addUp = a[0]+a[1];
+        Integer addUp1 = b[0]+b[1];
+
+        if(addUp>addUp1){
+            return a;
+        }
+        return b;
     }
 
     /**
@@ -81,6 +112,15 @@ public class ArrayDrills {
      *           midThree([8, 6, 7, 5, 3, 0, 9]); // Should return [7, 5, 3]
      */
     public Integer[] midThree(Integer[] nums){
-        return null;
+
+        Integer[] array2 = new Integer[3];
+
+        Integer a = nums.length;
+        Integer middleIndex = nums.length / 2;
+        array2[0] = nums[middleIndex-1];
+        array2[1] = nums[middleIndex];
+        array2[2] = nums[middleIndex+1];
+
+        return array2;
     }
 }
