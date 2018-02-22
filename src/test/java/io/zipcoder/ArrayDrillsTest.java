@@ -177,7 +177,7 @@ public class ArrayDrillsTest {
 
     @Test
     public void biggerTwo3(){
-        Integer[] inputArray1 = {-1 ,20};
+        Integer[] inputArray1 = {1 ,20};
         Integer[] inputArray2 = {2, 15};
         Integer[] expected = {1,20};
         Integer[] actual = arrayDrills.biggerTwo(inputArray1, inputArray2);
