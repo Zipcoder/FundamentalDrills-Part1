@@ -91,6 +91,8 @@ public class ArrayDrills {
             } else {
             answer[0] = (input1[(input1.length/2)] + input1[((input1.length/2) - 1)]);
             }
+
+
         Integer second = input2.length % 2;
         if (second != 0) {
             answer[1] = input2[(input2.length/2)];
